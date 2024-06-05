@@ -13,32 +13,37 @@
 
 <h2>Mi pagina con jQuery</h2>
 
+<input type="text" id="miCampo" placeholder="Introduce un valor">
+<button id="miBoton">Realizar Solicitud AJAX</button>
+
 <div id="resultado"></div>
 
-<button id="miBoton">Realizar Solicitud AJAX</button>
 
 
 
 <script>
 
-    function realizarSolicitud(){
+    function realizarSolicitudAjax(){
+        let parametro = $('#miCampo').val();
+
         $.ajax({
             url: 'ejemplo.php',
             type: 'GET',
+            data: {parametro:parametro},
             dataType: 'html',
             success: function(data){
-                $('#resultado').html('respuesta del servidor: ' +data)
+                $('#resultado').html('la respuesta del servidor: ' +data);
             },
             error: function(error){
-                console.log('error en la solicitud', error)
+                console.log('Error en la solicitud AJAX:', error);
             }
         })
     }
 
-
     $('#miBoton').on('click', function(){
-        realizarSolicitud();
+        realizarSolicitudAjax();
     })
+
 </script>
 
 </body>
