@@ -1,12 +1,11 @@
 <?php
-// obtener el valor del parametro enviado por GET
-$parametro = $_GET['parametro'] ?? '';
+$mensaje = $_GET['mensaje']  ?? 'Mensaje por defecto';
 
 // realizar alguna operacion con el parametro
+$respuesta = "El servidor dice: '{$mensaje}'";
 
-$mensaje = "La solicitud AJAX con parametro '{$parametro}' fue exitosa!";
 
-echo $mensaje;
+echo $respuesta;
 
 ?>
 
