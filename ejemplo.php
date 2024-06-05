@@ -1,12 +1,13 @@
 <?php
-$mensaje = $_GET['mensaje']  ?? 'Mensaje por defecto';
+// obtener los datos del formulario
+$nombre = $_POST['nombre'] ?? '';
+$email = $_POST['email'] ?? '';
+$mensaje = $_POST['mensaje'] ?? '';
 
-// realizar alguna operacion con el parametro
-$respuesta = "El servidor dice: '{$mensaje}'";
-
+// Realizar la operacion con los datos
+$respuesta = "Formulario recibido! Nombre: {$nombre}, Email : {$email}, Mensaje: {$mensaje}";
 
 echo $respuesta;
-
 ?>
 
 
