@@ -14,4 +14,20 @@
             $('#contador').val('Ver nº enlaces');
         }
     })
+
+    $('#parrafos').click(function(){
+        let funcion = $('#parrafos').val();
+        let nuevoParrafo = '<p>Nuevo Parrafo</p>';
+
+        if(funcion === 'Añadir parrafo'){
+            $('#contenido').append(nuevoParrafo);
+            $('#parrafos').val('Eliminar parrafo');
+        }else{
+            let parrafos = $('p');
+            let parrafo = parrafos[parrafos.length - 1];
+            parrafo.remove();
+            $('#parrafos').val('Añadir parrafo');
+        }
+
+    })
   })
