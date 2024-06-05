@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JQuery</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="cosas.js"></script>
     <!-- <script src="/Leccion1/libreria/jquery-3.7.1.min.js"></script>
     <script src="/Leccion1/libreria/jquery-ui.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
@@ -13,50 +14,19 @@
     </style>
 </head>
 <body>
-
-    <form action="" id="miFormulario">
-        <label for="nombre">Nombre</label>
-        <input type="text" id="nombre" name="nombre">
-
-        <label for="edad">Edad</label>
-        <input type="number" id="edad" name="edad">
-
-        <button id="enviarDatos" type="button">Enviar Datos</button>
-    </form>
     
-    <div id="resultado"></div>
+    <div id="contenido">
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam, ut quod, nemo sit similique corporis numquam explicabo earum <a href="#">corrupti</a> eligendi labore consequuntur reiciendis incidunt facilis voluptatum deleniti libero? Assumenda quo dolorum hic laborum, perspiciatis voluptas perferendis beatae facere? Facere perspiciatis vero nesciunt <a href="#">delectus</a> aliquid at aliquam amet labore, numquam ea laudantium. Soluta fugiat unde non cumque, ullam eveniet repellat. Consequuntur, alias cumque tempore iusto consectetur, nostrum velit sunt et reiciendis illum eos dolores expedita voluptate perspiciatis nihil, asperiores quidem accusamus <a href="#">officiis</a> eius recusandae quis unde dolorem! Totam ex blanditiis omnis atque minus aut minima earum. Animi quae repellendus magnam eum hic optio blanditiis tempore aut labore culpa sit quasi sapiente consectetur enim harum, numquam ab. Unde suscipit dignissimos rem adipisci illum itaque amet perspiciatis vero inventore nemo facilis, enim ea impedit? Doloremque repudiandae, hic repellat distinctio voluptate amet veritatis nam repellendus suscipit ex. Nostrum et aspernatur delectus suscipit tempora dignissimos deleniti <a href="#">blanditiis</a> laborum illo, eveniet quam. Quasi quidem voluptatem illum sed sequi, enim saepe omnis explicabo repellendus dolores consequuntur veniam numquam deserunt ducimus dolor sunt ex iste eum, eveniet nemo esse minima! Explicabo facere nihil praesentium recusandae quaerat architecto, neque doloribus illum nesciunt aut labore <a href="#">voluptates</a> libero excepturi beatae voluptatem dignissimos reprehenderit error, earum animi enim in? Ab error similique aliquam quo inventore placeat at et, nisi nobis aspernatur molestias atque, nostrum, odit accusantium quidem. Delectus corrupti doloribus amet tempore repudiandae nostrum, non consectetur omnis cupiditate rerum harum eum sed hic iste ipsa velit sapiente laboriosam maiores soluta doloremque quod ut eos ratione! Vitae, ex repellat! Ipsum neque numquam molestiae cupiditate iste. Totam iure <a href="#">fugiat</a>, culpa nisi corrupti officia sequi vitae iste, esse eum natus. Deleniti officiis totam aperiam odio quas perspiciatis atque. Quis culpa laboriosam nam rerum at ut? Id harum et quos non a, maiores fugit facilis.</p>
+    </div>
+
+    <input type="text" id="mostrar" readonly> <br><br>
+    <input type="button" id="contador" value="Ver nº enlaces">
+    <input type="button" id="parrafos" value="Añadir parrafo">
+    <input type="button" id="fondos" value="Poner fondo">
+
 <script>
 
-    $(document).ready(function(){
-        $('#enviarDatos').on('click', function(){
-            enviarDatos();
-        })
-    })
 
-    function enviarDatos(){
-        let nombre = $('#nombre').val();
-        let edad = $('#edad').val();
-        let datos ={nombre:nombre,edad:edad};
-
-        $.ajax({
-        url: 'ejemplo.php',
-        type: 'POST',
-        data: JSON.stringify(datos), // Convertir el objeto a JSON antes de enviarlo
-        contentType: 'application/json',
-        dataType: 'json',
-        success: function(data){
-            mostrarResultado(data);
-        },
-        error: function(error){
-            console.log('Error en la solicitud AJAX', error);
-        }
-    })
-    };
-
-
-    function mostrarResultado(data){
-        $('#resultado').html('Respuesta del servidor: ' + JSON.stringify(data));
-    }
 
 </script>
 
