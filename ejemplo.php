@@ -1,15 +1,16 @@
 <?php
 
-$datos = array(
+$datos_json = file_get_contents('php://input');
+$datos = json_decode($datos_json);
 
-    'nombre' => 'Luis',
-    'edad' => 34,
-    'pais' => 'España'
+$respuesta = array(
+    'mensaje' => 'datos recibidos correctamente',
+    'datos' => $datos,
 );
 
 header('Content-Type: application/json');
 
-echo json_encode($datos);
+echo json_encode($respuesta);
 
 ?>
 
