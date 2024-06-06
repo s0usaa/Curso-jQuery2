@@ -29,5 +29,18 @@
             $('#parrafos').val('Añadir parrafo');
         }
 
-    })
-  })
+    });
+
+
+    $('#fondo').click(function(){
+        let funcion = $('#fondo').val();
+
+        if(funcion == "Poner fondo"){
+            $('#contenido').css('background-color','red');
+            $('#fondo').val("Quitar fondo");
+        }else{
+            $('#contenido').css('background-color','white');
+            $('#fondo').val("Poner fondo");
+        };
+    });
+  });
