@@ -1,13 +1,23 @@
 
 $(document).ready(function(){
-    $(".filters button").on("click", function(){
-        let filtroValor = $(this).attr("data-filter");
+    let currentIndex = 0;
+    let testimonial = $(".testimonial");
+    let totalTestimonial = testimonial.length;
 
-        if(filtroValor === 'all'){
-            $(".image").show();
-        }else{
-            $(".image").hide();
-            $('.image[data-category="'+filtroValor +'"]').show();
-        }
-    })
-})
+    showTestimonial(currentIndex);
+
+    $("#prevBtn").on("click", function(){
+        currentIndex = (currentIndex - 1 + totalTestimonial) % totalTestimonial;
+        showTestimonial(currentIndex);
+    });
+
+    $("#nextBtn").on("click", function(){
+        currentIndex = (currentIndex + 1) % totalTestimonial;
+        showTestimonial(currentIndex);
+    });
+
+    function showTestimonial(index){
+        testimonial.hide();
+        testimonial.eq(index).fadeIn();
+    }
+});
