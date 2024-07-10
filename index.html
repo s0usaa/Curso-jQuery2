@@ -15,12 +15,15 @@
 </head>
 <body>
 
-<label for="fecha">Selecciona una fecha:</label>
-<input type="text" id="fecha">
+<label for="fecha">Agrega una ciudad: </label>
+<input type="text" id="ciudad">
 <script>
 $(document).ready(function(){
-    $("#fecha").datepicker();
-})
+    let ciudades = ["Londres", "Madrid", "Valencia", "Chicago","Miami","Detroit","Patraix"];
+    $("#ciudad").autocomplete({
+        source:ciudades
+    });
+});
 </script>
 </body>
 
