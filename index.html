@@ -11,26 +11,118 @@
     <!-- <script src="/Leccion1/libreria/jquery-3.7.1.min.js"></script> -->
     <!-- <script src="/Leccion1/libreria/jquery-ui.min.js"></script> -->
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
+     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        #app {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #nuevaTarea {
+            width: 70%;
+            padding: 10px;
+        }
+
+        #btnAgregar {
+            padding: 10px;
+            cursor: pointer;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #btnAgregar:hover {
+            background-color: #2980b9;
+        }
+
+        .tarea {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #ecf0f1;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tarea span{
+            flex: 1;
+        }
+
+        .tarea .acciones {
+            margin-left: 10px;
+        }
+
+        .tarea .acciones button {
+            cursor: pointer;
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            padding: 5px;
+            border-radius: 3px;
+        }
+
+        .tarea .acciones button:hover {
+            background-color: #c0392b;
+        }
+
+        .tarea.completada {
+            background-color: #d5f5e3;
+            text-decoration: line-through;
+            color: #27ae60;
+        }
+     </style>
 </head>
 <body>
 
-    <div class="testimonial-container">
-        <div class="testimonial" data-index="1">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, qui!</p>
-            <span class="author">- Juanillo que te piyo</span>
-        </div>
-        <div class="testimonial" data-index="2">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, qui!</p>
-            <span class="author">- Cancerillo</span>
-        </div>
-        <div class="testimonial" data-index="3">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, qui!</p>
-            <span class="author">- Leonidas</span>
-        </div>
-    </div>
+<div id="app">
+    <h1>Lista Tareas</h1>
+    <input type="text" id="nuevaTarea" placeholder="Agrega una tarea">
+    <button id="btnAgregar">Agregar</button>
+    <ul id="listaTareas">
 
-    <button id="prevBtn">Anterior</button>
-    <button id="nextBtn">Siguiente</button>
+    </ul>
+</div>
+<script>
+    $(document).ready(function(){
+        //Funcion del boton de agregar
+        $("#btnAgregar").on("click", function(){
+            let nuevaTareaTexto = $("#nuevaTarea").val().trim();
+
+            if(nuevaTareaTexto !== ""){
+                agregarTarea(nuevaTareaTexto);
+                $("#nuevaTarea").val(""); //Limpiar el campo despues de agregar tarea
+            }
+        });
+        //Eliminar tarea
+        $("#listaTareas").on("click", ".acciones button", function(){
+            $(this).closest(".tarea").remove();
+        });
+        //Marcar tarea completada
+        $("#listaTareas").on("click", ".tarea", function(){
+            $(this).toggleClass("completada");
+        });
+        //Funcion para agregar una nueva tarea
+        function agregarTarea(texto){
+            let nuevaTarea = $("<li>").addClass("tarea");
+                nuevaTarea.append($("<span>").text(texto));
+                nuevaTarea.append("<div class='acciones'><button>Eliminar</button></div>");
+                $("#listaTareas").append(nuevaTarea);
+        }
+
+    })
+</script>
 </body>
 
 </html>
