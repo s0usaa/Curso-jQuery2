@@ -7,6 +7,7 @@
     <title>JQuery</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="cosas.js"></script>
+    <script src="Leccion1/libreria/jquery-ui.js"></script>
     <link rel="stylesheet" href="estilos.css">
     <!-- <script src="/Leccion1/libreria/jquery-3.7.1.min.js"></script> -->
     <!-- <script src="/Leccion1/libreria/jquery-ui.min.js"></script> -->
@@ -14,13 +15,11 @@
 </head>
 <body>
 
-<button id="miBoton">Haz Click</button>
-<div id="miDiv">Este es un elemento que se atenuará</div>
+<label for="fecha">Selecciona una fecha:</label>
+<input type="text" id="fecha">
 <script>
 $(document).ready(function(){
-    $("#miBoton").on("click", function(){
-        $("#miDiv").fadeOut();
-    });
+    $("#fecha").datepicker();
 })
 </script>
 </body>
